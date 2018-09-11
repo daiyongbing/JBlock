@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>JBlockChain</groupId>
+    <artifactId>JBlock</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.4.1.Final</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+
+                <configuration>
+                    <protocArtifact>
+                        com.google.protobuf:protoc:3.1.0:exe:${os.detected.classifier}
+                    </protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+    <!--添加akka的相关依赖 begin-->
+        <!-- akka Actor -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.11</artifactId>
+            <version>2.5.3</version>
+        </dependency>
+
+        <!--akka Cluster -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-cluster_2.11</artifactId>
+            <version>2.5.3</version>
+        </dependency>
+
+        <!--akka Cluster-tools -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-cluster-tools_2.11</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <!-- akka-testkit -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_2.11</artifactId>
+            <version>2.4.19</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- akka-slf4j -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-slf4j_2.11</artifactId>
+            <version>2.4.11</version>
+        </dependency>
+
+        <!--akka Persistence-->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-persistence_2.11</artifactId>
+            <version>2.5.3</version>
+        </dependency>
+
+        <!--akka Distributed Data-->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-distributed-data_2.11</artifactId>
+            <version>2.5.3</version>
+        </dependency>
+
+        <!--Akka HTTP-->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http_2.11</artifactId>
+            <version>10.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http-xml_2.12</artifactId>
+            <version>10.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http-testkit_2.11</artifactId>
+            <version>10.0.9</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--添加akka的相关依赖 end-->
+
+
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>3.5.1</version>
+    </dependency>
+
+    <!--日志-->
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.14</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>com.gilt</groupId>
+        <artifactId>gfc-timeuuid_2.11</artifactId>
+        <version>0.0.8</version>
+    </dependency>
+
+
+    <!--IPSF-->
+        <dependency>
+            <groupId>com.github.ipfs</groupId>
+            <artifactId>java-ipfs-api</artifactId>
+            <version>v1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ipld</groupId>
+            <artifactId>java-cid</artifactId>
+            <version>v1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.multiformats/java-multiaddr -->
+        <dependency>
+            <groupId>com.github.multiformats</groupId>
+            <artifactId>java-multiaddr</artifactId>
+            <version>v1.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.multiformats/java-multihash -->
+        <dependency>
+            <groupId>com.github.multiformats</groupId>
+            <artifactId>java-multihash</artifactId>
+            <version>v1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.multiformats/java-multibase -->
+        <dependency>
+            <groupId>com.github.multiformats</groupId>
+            <artifactId>java-multibase</artifactId>
+            <version>v1.0.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.57</version>
+        </dependency>
+
+
+        <!-- Exception in thread "main" java.lang.ClassNotFoundException: com.trueaccord.scalapb.GeneratedMessage -->
+        <!-- https://mvnrepository.com/artifact/com.trueaccord.scalapb/scalapb-runtime -->
+        <dependency>
+            <groupId>com.trueaccord.scalapb</groupId>
+            <artifactId>scalapb-runtime_2.12</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.trueaccord.scalapb/scalapb-json4s -->
+        <dependency>
+            <groupId>com.trueaccord.scalapb</groupId>
+            <artifactId>scalapb-json4s_2.12</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
