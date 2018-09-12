@@ -4,6 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActorUtils {
+    private volatile static ActorUtils instance;
+    private ActorUtils(){
+        //nothing to do
+    }
+    public static ActorUtils getInstance(){
+        if(instance == null){
+            synchronized (ActorUtils.class){
+                if(instance == null){
+                    instance = new ActorUtils();
+                }
+            }
+        }
+        return instance;
+    }
+
     public static Map<String, String> getIpAndPort(String clusterPath){
         //java中没有元祖类型，不能返回多个值，这里使用map来实现,key:ip,value:port
         Map<String, String> ipAndPort = new HashMap<String, String>();
