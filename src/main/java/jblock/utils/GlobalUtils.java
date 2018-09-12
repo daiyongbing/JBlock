@@ -2,6 +2,7 @@ package jblock.utils;
 
 import akka.actor.Props;
 import jblock.protos.Peer.Transaction;
+import org.junit.Test;
 
 
 public class GlobalUtils {
@@ -81,4 +82,5 @@ public class GlobalUtils {
 
     public static String AppConfigPath = "application.conf";
     public static String SysConfigPath = "conf/system.conf";
+
 }

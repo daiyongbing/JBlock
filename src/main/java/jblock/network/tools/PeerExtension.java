@@ -8,7 +8,7 @@ import akka.actor.*;
  */
 public class PeerExtension extends AbstractExtensionId<PeerExtensionImpl> implements ExtensionIdProvider {
     //This will be the identifier of our CountExtension
-    public final static PeerExtension CountExtensionProvider = new PeerExtension();
+    public final static PeerExtension PeerExtensionProvider = new PeerExtension();
     public PeerExtension() {}
 
     //The lookup method is required by ExtensionIdProvider,
@@ -17,7 +17,7 @@ public class PeerExtension extends AbstractExtensionId<PeerExtensionImpl> implem
     // the ActorSystem starts up
     @Override
     public PeerExtension lookup() {
-        return PeerExtension.CountExtensionProvider; //The public static final
+        return PeerExtension.PeerExtensionProvider; //The public static final
     }
 
     //This method will be called by Akka
