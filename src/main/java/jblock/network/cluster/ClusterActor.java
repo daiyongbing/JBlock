@@ -103,7 +103,7 @@ public class ClusterActor extends AbstractActor {
      * @return
      */
     public Boolean isSameSystem(ActorRef from, ActorRef self){
-        ActorUtils actorUtils = new ActorUtils();
+        ActorUtils actorUtils = ActorUtils.getInstance();
         return actorUtils.getIpAndPort(getClusterAddr(from)) == actorUtils.getIpAndPort(getClusterAddr(self));
     }
 
@@ -114,7 +114,7 @@ public class ClusterActor extends AbstractActor {
      * @return
      */
     public Boolean isSameSystem(ActorRef from, String self){
-        ActorUtils actorUtils = new ActorUtils();
+        ActorUtils actorUtils = ActorUtils.getInstance();
         return actorUtils.getIpAndPort(getClusterAddr(from)) == actorUtils.getIpAndPort(self);
     }
 

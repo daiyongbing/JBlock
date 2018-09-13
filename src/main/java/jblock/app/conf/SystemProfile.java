@@ -22,12 +22,12 @@ public class SystemProfile {
     private Integer _MAX_CATCH_TRANS_NUM = 0;//交易最多缓存数量
     private static Long _DISKSPACE_ALARM_NUM = 0l;//磁盘剩余空间预警 单位=M
     private static Integer _SERVERPORT = 8081;//http服务的端口，默认为8081
-    private Integer _CHECKCERTVALIDATE = 0;//是否检查证书的有效性，0不检查，1检查
+    private static Integer _CHECKCERTVALIDATE = 0;//是否检查证书的有效性，0不检查，1检查
     private Integer _CONTRACTOPERATIONMODE = 0;//设置合约的运行方式，0=debug方式，1=deploy，默认为debug方式，如果发布部署，必须使用deploy方式。
 
 
     private static Integer SERVERPORT = _SERVERPORT;
-    private Integer CHECKCERTVALIDATE = _CHECKCERTVALIDATE;
+    private static Integer CHECKCERTVALIDATE = _CHECKCERTVALIDATE;
     private static Long DISKSPACE_ALARM_NUM = _DISKSPACE_ALARM_NUM;
     private Integer CONTRACTOPERATIONMODE=_CONTRACTOPERATIONMODE;
 
@@ -145,7 +145,7 @@ public class SystemProfile {
         return SERVERPORT;
     }
 
-    public Integer getCheckCertValidate(){
+    public static Integer getCheckCertValidate(){
         return CHECKCERTVALIDATE;
     }
 
