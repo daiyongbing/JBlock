@@ -203,12 +203,15 @@
             <artifactId>scalapb-runtime_2.12</artifactId>
             <version>0.6.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.trueaccord.scalapb/scalapb-json4s -->
         <dependency>
             <groupId>com.trueaccord.scalapb</groupId>
             <artifactId>scalapb-json4s_2.12</artifactId>
             <version>0.3.0</version>
         </dependency>
+
+        <!-- 单元测试 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
