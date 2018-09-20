@@ -1,5 +1,6 @@
 package jblock.crypto;
 
+import com.google.protobuf.ByteString;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.junit.Test;
 
@@ -7,9 +8,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class Sha256 {
-
-    public static byte[] hash(byte[] input){
+public class Sha256 extends CryptographicHash{
+    @Override
+    public  byte[] hash(byte[] input){
         byte[] bytes = null;
         try {
             bytes = MessageDigest.getInstance("SHA-256").digest(input);
@@ -17,6 +18,20 @@ public class Sha256 {
             e.printStackTrace();
         }
         return bytes;
+    }
+
+    public String hashstr(byte[] input){
+       return Byte2Hex.bytes2hex(hash(input));
+    }
+
+    public String hashstr(String input){
+        ByteString iptb = ByteString.copyFromUtf8(input);
+        return Byte2Hex.bytes2hex(hash(iptb.toByteArray()));
+    }
+
+    public byte[] hashToBytes(String input){
+        ByteString iptb = ByteString.copyFromUtf8(input);
+        return hash(iptb.toByteArray());
     }
 
     @Test
